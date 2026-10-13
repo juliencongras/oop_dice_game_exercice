@@ -5,7 +5,8 @@ class Des{
     }
 
     lancer(){
-        return Math.ceil(Math.random() * this.nbrface);
+        this.score = Math.ceil(Math.random() * this.nbrface);
+        return this.score;
     }
 }
 
@@ -46,7 +47,7 @@ class Partie {
             }
         }
         if(this.scoreJ1 == this.scoreJ2){
-            console.log("Les deux jours ont le même score !")
+            console.log("Les deux joueurs ont le même score !")
         }
         else if(this.scoreJ1 > this.scoreJ2){
             console.log(`Le gagnant est ${this.joueur1.nom} avec ${this.scoreJ1} points !`);
@@ -60,6 +61,8 @@ class Partie {
 const playerOneD6 = new Des(6, 1);
 const playerTwoD6 = new Des(6, 1);
 const bob = new Joueur("Bob", 0, playerOneD6);
-const alice = new Joueur("Alice", 0, playerOneD6);
+const alice = new Joueur("Alice", 0, playerTwoD6);
 
-console.log(player1.lancerDes(), player1.valeurLance);
+const partieTest = new Partie(bob, alice, 5, 0, 0);
+
+partieTest.lancerPartie();
