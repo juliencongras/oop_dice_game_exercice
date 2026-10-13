@@ -1,3 +1,11 @@
+const gameStartButton = document.querySelector("#gameStartButton");
+const playerOneName = document.querySelector("#playerOneName");
+const playerTwoName = document.querySelector("#playerTwoName");
+const playerOneDieFaceNumber = document.querySelector("#playerOneDieFaceNumber");
+const playerTwoDieFaceNumber = document.querySelector("#playerTwoDieFaceNumber");
+const turnNumber = document.querySelector("#turnNumber");
+const gameTextResult = document.querySelector("#gameResult");
+
 class Des{
     constructor(nbrface, score) {
         this.nbrface = nbrface;
@@ -47,16 +55,31 @@ class Partie {
             }
         }
         if(this.scoreJ1 == this.scoreJ2){
-            console.log("Les deux joueurs ont le même score !")
+            gameTextResult.innerText = "Les deux joueurs ont le même score !";
+            console.log("Les deux joueurs ont le même score !");
         }
         else if(this.scoreJ1 > this.scoreJ2){
+            gameTextResult.innerText = `Le gagnant est ${this.joueur1.nom} avec ${this.scoreJ1} points !`;
             console.log(`Le gagnant est ${this.joueur1.nom} avec ${this.scoreJ1} points !`);
         }
         else{
+            gameTextResult.innerText = `Le gagnant est ${this.joueur2.nom} avec ${this.scoreJ2} points !`;
             console.log(`Le gagnant est ${this.joueur2.nom} avec ${this.scoreJ2} points !`);
         }
     }
 }
+
+gameStartButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const playerOneDie = new Des(playerOneDieFaceNumber.value, 0);
+    const playerTwoDie = new Des(playerTwoDieFaceNumber.value, 0);
+    const playerOneInstance = new Joueur(playerOneName.value, 0, playerOneDie);
+    const playerTwoInstance = new Joueur(playerTwoName.value, 0, playerTwoDie);
+    const newGame = new Partie(playerOneInstance, playerTwoInstance, turnNumber.value, 0, 0);
+
+    newGame.lancerPartie();
+})
 
 const playerOneD6 = new Des(6, 1);
 const playerTwoD6 = new Des(6, 1);
