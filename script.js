@@ -42,6 +42,29 @@ class Partie {
     }
 
     lancerPartie(){
+        /*
+        let turnCounter = 0;
+        const gameLoop = setInterval(function(){
+            this.joueur1.lancerDes();
+            visualPlayerOneDie.innerText = this.joueur1.valeurLance;
+            this.joueur2.lancerDes();
+            visualPlayerTwoDie.innerText = this.joueur2.valeurLance;
+            if(this.joueur1.valeurLance > this.joueur2.valeurLance){
+                this.scoreJ1 += 2;
+            }
+            else if(this.joueur2.valeurLance > this.joueur1.valeurLance){
+                this.scoreJ2 += 2;
+            }
+            else{
+                this.scoreJ1 += 1;
+                this.scoreJ2 += 1;
+            }
+            turnCounter++;
+            if(turnCounter >= this.nbrTour){
+                clearInterval(gameLoop);
+            }
+        }, 200);
+        */
         for(let i = 0; i < this.nbrTour; i++){
             this.joueur1.lancerDes();
             visualPlayerOneDie.innerText = this.joueur1.valeurLance;
