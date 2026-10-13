@@ -17,7 +17,7 @@ class Joueur {
     }
 
     lancerDes(){
-        this.des.lancer();
+        this.valeurLance = this.des.lancer();
     }
 }
 
@@ -29,10 +29,37 @@ class Partie {
         this.scoreJ1 = scoreJ1;
         this.scoreJ2 = scoreJ2;
     }
+
+    lancerPartie(){
+        for(let i = 0; i < this.nbrTour; i++){
+            this.joueur1.lancerDes();
+            this.joueur2.lancerDes();
+            if(this.joueur1.valeurLance > this.joueur2.valeurLance){
+                this.scoreJ1 += 2;
+            }
+            else if(this.joueur2.valeurLance > this.joueur1.valeurLance){
+                this.scoreJ2 += 2;
+            }
+            else{
+                this.scoreJ1 += 1;
+                this.scoreJ2 += 1;
+            }
+        }
+        if(this.scoreJ1 == this.scoreJ2){
+            console.log("Les deux jours ont le même score !")
+        }
+        else if(this.scoreJ1 > this.scoreJ2){
+            console.log(`Le gagnant est ${this.joueur1.nom} avec ${this.scoreJ1} points !`);
+        }
+        else{
+            console.log(`Le gagnant est ${this.joueur2.nom} avec ${this.scoreJ2} points !`);
+        }
+    }
 }
 
 const playerOneD6 = new Des(6, 1);
 const playerTwoD6 = new Des(6, 1);
-const player1 = new Joueur("player1", 0, playerOneD6);
+const bob = new Joueur("Bob", 0, playerOneD6);
+const alice = new Joueur("Alice", 0, playerOneD6);
 
-console.log(player1.lancerDes());
+console.log(player1.lancerDes(), player1.valeurLance);
