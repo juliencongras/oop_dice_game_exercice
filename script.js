@@ -5,6 +5,8 @@ const playerOneDieFaceNumber = document.querySelector("#playerOneDieFaceNumber")
 const playerTwoDieFaceNumber = document.querySelector("#playerTwoDieFaceNumber");
 const turnNumber = document.querySelector("#turnNumber");
 const gameTextResult = document.querySelector("#gameResult");
+const visualPlayerOneDie = document.querySelector("#playerOneDie");
+const visualPlayerTwoDie = document.querySelector("#playerTwoDie")
 
 class Des{
     constructor(nbrface, score) {
@@ -42,7 +44,9 @@ class Partie {
     lancerPartie(){
         for(let i = 0; i < this.nbrTour; i++){
             this.joueur1.lancerDes();
+            visualPlayerOneDie.innerText = this.joueur1.valeurLance;
             this.joueur2.lancerDes();
+            visualPlayerTwoDie.innerText = this.joueur2.valeurLance;
             if(this.joueur1.valeurLance > this.joueur2.valeurLance){
                 this.scoreJ1 += 2;
             }
