@@ -6,6 +6,22 @@
     <title>Jeu de dées</title>
 </head>
 <body>
+    <div id="diceContainer">
+        <div class="die">
+            <p id="playerOneDie"></p>
+        </div>
+        <div class="die">
+            <p id="playerTwoDie"></p>
+        </div>
+    </div>
+    <form id="gameStartForm" action="">
+        <p>Nom joueur 1 : <input type="text" name="" id="playerOneName"></p>
+        <p>Nombre de faces du dé du joueur 1 : <input type="number" min="2" max="100" id="playerOneDieFaceNumber"></p>
+        <p>Nom joueur 2 : <input type="text" name="" id="playerTwoName"></p>
+        <p>Nombre de faces du dé du joueur 2 : <input type="number" min="2" max="100" id="playerTwoDieFaceNumber"></p>
+        <p>Nombre de tours : <input type="number" min="1" max="100" id="turnNumber"></p>
+        <button>Lancer une partie</button>
+    </form>
     <script src="script.js"></script>
 </body>
 </html>
