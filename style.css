@@ -1,0 +1,14 @@
+#diceContainer{
+    display: flex;
+    width: 250px;
+    justify-content: space-around;
+}
+
+.die{
+    outline: 2px black solid;
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    text-align: center;
+    align-content: center;
+}

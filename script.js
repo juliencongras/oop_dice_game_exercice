@@ -71,6 +71,7 @@ class Partie {
 
 gameStartButton.addEventListener("click", (e) => {
     e.preventDefault();
+    gameStartButton.disabled = true;
 
     const playerOneDie = new Des(playerOneDieFaceNumber.value, 0);
     const playerTwoDie = new Des(playerTwoDieFaceNumber.value, 0);
@@ -79,6 +80,7 @@ gameStartButton.addEventListener("click", (e) => {
     const newGame = new Partie(playerOneInstance, playerTwoInstance, turnNumber.value, 0, 0);
 
     newGame.lancerPartie();
+    gameStartButton.disabled = false;
 })
 
 const playerOneD6 = new Des(6, 1);
