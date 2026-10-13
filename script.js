@@ -1,12 +1,12 @@
 class Des{
-    constructor(nbrface: int, score: int) {
+    constructor(nbrface, score) {
         this.nbrface = nbrface;
         this.score = score;
     }
 }
 
 class Joueur {
-    constructor(nom: string, valeurLance: int, des: Des) {
+    constructor(nom, valeurLance, des) {
         this.nom = nom;
         this.valeurLance = valeurLance;
         this.des = des;
@@ -14,7 +14,7 @@ class Joueur {
 }
 
 class Partie {
-    constructor(joueur1: Joueur, joueur2: Joueur, nbrTour: int, scoreJ1: int, scoreJ2: int) {
+    constructor(joueur1, joueur2, nbrTour, scoreJ1, scoreJ2) {
         this.joueur1 = joueur1;
         this.joueur2 = joueur2;
         this.nbrTour = nbrTour;
@@ -22,10 +22,3 @@ class Partie {
         this.scoreJ2 = scoreJ2;
     }
 }
-
-const d6 = new Des(6, 1);
-const fakeDie = new Des("Test", "this shouldn't work");
-
-console.log(d6.nbrface);
-console.log(fakeDie.nbrface);
-
